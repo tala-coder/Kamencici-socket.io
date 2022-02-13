@@ -17,15 +17,15 @@ username i igra kreće.
  
 ### Node aplikacija treba da sadrži više dijelova:
 1. Ruta /igra čijim se učitavanjem otvara prozor za unos korisničkog imena igrača. Nakon
-unosa korisničkog imena, dešava se jedna od tri situacije:
-  * a. Prikazuje se poruka da je igra popunjena, ukoliko su dva igrača aktivna i igraju
-igru.
-  * b. Prikazuje se poruka da se čeka drugi igrač, ukoliko je trenutni korisnik jedini
-aktivan. Nakon prijave drugog igrača, počinje igra.
-  * c. Počinje nova igra, ukoliko je trenutni korisnik drugi aktivni korisnik.
+unosa korisničkog imena, dešava se jedna od tri situacije: <br>
+     Prikazuje se poruka da je igra popunjena, ukoliko su dva igrača aktivna i igraju
+igru. <br>
+     Prikazuje se poruka da se čeka drugi igrač, ukoliko je trenutni korisnik jedini
+aktivan. Nakon prijave drugog igrača, počinje igra.<br>
+     Počinje nova igra, ukoliko je trenutni korisnik drugi aktivni korisnik.<br>
 
 
-2. Glavna igra se sastoji od nekoliko elemenata:
+2. Glavna igra se sastoji od nekoliko elemenata:<br>
   a. Prikazuje se broj kamenčića na raspolaganju. <br>
   b. Prikazuje se tekst koji je igrač na potezu.<br>
   c. Prikazuje se polje za unos broja kamenčića koje igrač bira.<br>
