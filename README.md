@@ -31,3 +31,14 @@ aktivan. Nakon prijave drugog igrača, počinje igra.<br>
   c. Prikazuje se polje za unos broja kamenčića koje igrač bira.<br>
   d. Nakon poteza jednog igrača, potez se automatski prikazuje drugom igraču!
 Dakle, drugi igrač ne mora učitavati igru kako bi ona bila validna.
+
+# Preview
+
+https://user-images.githubusercontent.com/59321839/153778656-60f8917b-ecae-4b07-b02e-a9bf116ab628.mp4
+
+
+
+https://user-images.githubusercontent.com/59321839/153778667-12d16edb-e0c8-4d18-b438-4ff00d477932.mp4
+
+
+
