@@ -1,15 +1,14 @@
-# Kamencici
- 
- <h3> Specifikacije <h3>
+# Specifikacije
+  
  
 Kreirati web aplikaciju za online igranje igrice Kamenčići. Pravila igre su sljedeća:
-● Na raspolaganju je hrpa kamenčića.
-● Igru naizmjenično igraju dva igrača.
-● Svaki igrač u svom potezu bira koliko će kamenčića baciti u vodu.
-● U svakom potezu, igrač mora baciti bar jedan kamenčić, te ne smije baciti više od pola
+⋅⋅* Na raspolaganju je hrpa kamenčića.
+⋅⋅* Igru naizmjenično igraju dva igrača.
+⋅⋅* Svaki igrač u svom potezu bira koliko će kamenčića baciti u vodu.
+⋅⋅* U svakom potezu, igrač mora baciti bar jedan kamenčić, te ne smije baciti više od pola
 kamenčića (dakle, smije uzeti pola, ali ne više).
-● Gubi igrač koji ostane bez poteza.
-● Igrač ostaje bez poteza kada na hrpi ostane tačno jedan kamenčić.
+⋅⋅* Gubi igrač koji ostane bez poteza.
+⋅⋅* Igrač ostaje bez poteza kada na hrpi ostane tačno jedan kamenčić.
 Aplikacija treba da dozvoljava online igranje za dva igrača (svako igra na svom računaru).
 Ukoliko se treći igrač prijavi na stranicu, ispisuje se prikladna poruka i igrač ne počinje igru.
 Dakle, u svakom trenutku najviše dva igrača igraju igru. Nakon učitavanja stranice, igrač unosi
