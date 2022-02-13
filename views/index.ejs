@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ispit iz predmeta WEB 2</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+
+<div class="row row-cols-sm-2 row-cols-md-2 row-cols-lg-3 justify-content-center ">
+  <h1 id="poruka" style="visibility: visible"  >  </h1>
+</div>
+
+<div class="container" id="div" style="visibility: visible"  >
+  <div class="row row-cols-sm-2 row-cols-md-2 row-cols-lg-3 justify-content-center ">
+    <h1 id="naslov">Broj kamenčića : <%=randomBroj%> </h1>
+  </div>
+  <form class="form-inline row-cols-sm-2 row-cols-md-2 row-cols-lg-4 justify-content-center">
+    <div class="form-group m-1">
+      <input id="input" class="form-control-lg" type="number" min="1" max="25" value=""
+             data-bind="value:replyNumber" />
+    </div>
+    <button onclick="odigraj()" id="submit" type="button"
+            class="btn btn-success btn-lg justify-content-center">Odigraj</button>
+  </form>
+  <br>
+  <div style="text-align: center" class="alert alert-success">
+    <p id="igrac">Na potezu je igrač ...</p>
+  </div> <br>
+  <div id="igra" style="visibility: hidden; border: 2px solid black; background-color: skyblue ">
+    <ul id="ul">
+    </ul>
+  </div>
+  <div class="row justify-content-center p-4">
+    <button onclick="{location.reload(); return false;}" type="button" class="btn btn-lg btn-outline-primary"
+            id="igrajPonovo" value="igrajPonovo" style="visibility: hidden;">IGRAJ PONOVO!</button>
+  </div>
+</div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+
+<script>
+  const socket = io();
+  const { username, room } = Qs.parse(location.search, { ignoreQueryPrefix: true });
+  socket.emit('join', { username, room });
+
+  function odigraj() {
+    var inputBroj = parseInt(document.getElementById("input").value);
+    socket.emit('front', inputBroj);
+  }
+
+  socket.on('podesiRandomBroj_i_potezIgraca', (obj) => {
+    document.getElementById("naslov").innerHTML = "Broj kamenčića : " +  parseInt(obj.randomBroj);
+    document.getElementById("igrac").innerHTML = `Na potezu je igrač ${obj.user}`;
+  })
+
+  socket.on('pouruka_s_bekenda_trenutnom_useru', (obj) => {
+    document.getElementById("poruka").innerHTML = obj.poruka;
+    document.getElementById("div").style.visibility = "hidden";
+  })
+
+  socket.on('igraJePocela', (obj) => {
+    document.getElementById("igrac").innerHTML = `Na potezu je igrač ${obj.username}`;
+    document.getElementById("poruka").innerHTML = '';
+    document.getElementById("poruka").style.visibility = "hidden";
+    document.getElementById("div").style.visibility = "visible";
+  })
+
+
+  socket.on('bekend', (obj) => {
+    console.log('user->', obj.user,'broj->', obj.broj, 'randomBroj->', obj.randomBroj)
+    document.getElementById('ul').innerHTML = `Igrač ${obj.user} je birao broj : ` + obj.broj;
+    document.getElementById("igra").style.visibility = "visible";
+    // document.getElementById("div").style.visibility = "visible";
+  })
+
+  socket.on('krajIgre', (obj) => {
+    document.body.style.backgroundColor = "#c2d6d6";
+    document.getElementById("naslov").innerHTML = "Broj kamenčića : " +  '1';
+    document.getElementById("igrac").innerHTML = `Čestitamo igracu ${obj.username}!`;
+    document.getElementById("submit").setAttribute('disabled','disabled');
+    document.getElementById("igrajPonovo").style.visibility = "visible";
+  })
+
+      console.log(username, room)
+
+</script>
+</html>
+
+
+
