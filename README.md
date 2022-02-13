@@ -26,8 +26,8 @@ aktivan. Nakon prijave drugog igrača, počinje igra.
 
 
 2. Glavna igra se sastoji od nekoliko elemenata:
-  a. Prikazuje se broj kamenčića na raspolaganju. 
-  b. Prikazuje se tekst koji je igrač na potezu.
-  c. Prikazuje se polje za unos broja kamenčića koje igrač bira.
+  a. Prikazuje se broj kamenčića na raspolaganju. <br>
+  b. Prikazuje se tekst koji je igrač na potezu.<br>
+  c. Prikazuje se polje za unos broja kamenčića koje igrač bira.<br>
   d. Nakon poteza jednog igrača, potez se automatski prikazuje drugom igraču!
 Dakle, drugi igrač ne mora učitavati igru kako bi ona bila validna.
